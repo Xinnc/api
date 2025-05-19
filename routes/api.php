@@ -31,6 +31,7 @@ Route::middleware('auth.local')->group(function () {
 Route::middleware('role:teacher')->group(function () {
     Route::apiResource('courses', CourseController::class, ['only' => ['store', 'update', 'destroy']]);
     Route::apiResource('courses/{course}/tasks', TaskController::class, ['only' => ['store', 'update', 'destroy']]);
+    Route::get('user/{user}/courses', [CourseController::class, 'myCourses']);
 });
 
 //Route::fallback(function () {

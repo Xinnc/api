@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\Course\CreateCourseAction;
 use App\Actions\Course\DeleteCourseAction;
 use App\Actions\Course\GetCourseAction;
+use App\Actions\Course\GetMyCourseAction;
 use App\Actions\Course\GetOneCourseAction;
 use App\Actions\Course\UpdateCourseAction;
 use App\Http\Requests\UpdateCourseRequest;
@@ -30,5 +31,9 @@ class CourseController extends Controller
 
     public function show($course){
         return GetOneCourseAction::execute($course);
+    }
+
+    public function myCourses($user){
+        return GetMyCourseAction::execute($user);
     }
 }
